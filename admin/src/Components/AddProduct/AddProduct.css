@@ -1,0 +1,143 @@
+.add-product {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px 50px;
+  margin: 20px auto;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins';
+}
+
+.addproduct-itemfield {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.addproduct-itemfield p {
+  margin-bottom: 6px;
+}
+
+.addproduct-itemfield input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  border-radius: 6px;
+  padding-left: 15px;
+  border: 1px solid #d3d3d3;
+  font-size: 14px;
+  color: #555;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.addproduct-itemfield input:focus {
+  border-color: #6079ff;
+}
+
+.addproduct-price {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.addproduct-selector {
+  padding: 12px;
+  width: 150px;
+  font-size: 14px;
+  color: #555;
+  border-radius: 6px;
+  border: 1px solid #d3d3d3;
+  background: #f9f9f9;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.addproduct-selector:focus {
+  border-color: #6079ff;
+}
+
+.addproduct-thumbnail-img {
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+  object-fit: contain;
+  margin: 10px 0px;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addproduct-thumbnail-img:hover {
+  background-color: #eef1ff;
+}
+
+.addproduct-btn {
+  margin-top: 25px;
+  width: 160px;
+  height: 50px;
+  border-radius: 6px;
+  background: #6079ff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.addproduct-btn:hover {
+  background: #5068e0;
+}
+
+/* ========== Media Queries ========== */
+
+/* Tablet view */
+@media screen and (max-width: 768px) {
+  .add-product {
+    padding: 25px 30px;
+  }
+
+  .addproduct-price {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .addproduct-selector {
+    width: 100%;
+  }
+
+  .addproduct-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile view */
+@media screen and (max-width: 480px) {
+  .add-product {
+    padding: 20px 15px;
+  }
+
+  .addproduct-itemfield input,
+  .addproduct-selector {
+    font-size: 13px;
+    height: 40px;
+  }
+
+  .addproduct-thumbnail-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .addproduct-btn {
+    height: 45px;
+    font-size: 15px;
+  }
+}
