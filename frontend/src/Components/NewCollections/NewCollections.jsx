@@ -2,19 +2,17 @@ import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 import Item from '../Items/Item'
 
-
 const NewCollections = () => {
 
   const [new_collection,setNew_collection]=useState([]);
 
     useEffect(()=>{
-      fetch('http://localhost:4000/newcollections')
+      fetch('https://e-commerce-backend-r3ez.onrender.com/newcollections')
       .then((response)=>response.json())
       .then((data)=>setNew_collection(data));
     },[]);
 
   return (
-    
     <div className='new_collections' >
         <h1>NEW COLLECTIONS</h1>
       <hr/>
