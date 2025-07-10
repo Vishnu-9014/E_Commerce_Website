@@ -3,35 +3,33 @@ import './ListProduct.css'
 
 import cross_icon from '../../assets/cross_icon.png'
 
-
 const ListProduct = () => {
-  const [allproducts,setAllProducts]=useState([]);
+  const [allproducts, setAllProducts] = useState([]);
   
-  const fetchInfo=async ()=>{
-    await fetch('http://localhost:4000/allproducts').
-     then((res)=>res.json())
-    .then((data)=>{
-      console.log(data)
-      setAllProducts(data)});
+  const fetchInfo = async () => {
+    await fetch('https://e-commerce-backend-r3ez.onrender.com/allproducts')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setAllProducts(data)
+      });
   }
 
-    useEffect(()=>{
-      fetchInfo();
-    },[]);
+  useEffect(() => {
+    fetchInfo();
+  }, []);
 
-    const remove_product=async (id)=>{
-      await fetch('http://localhost:4000/removeproduct',{
-        method:'POST',
-        headers:{
-          Accept:'application/json',
-          'Content-Type':'application/json',
-        },
-        body:JSON.stringify({id:id}),
-      })
-       await fetchInfo();
-    }
-
-
+  const remove_product = async (id) => {
+    await fetch('https://e-commerce-backend-r3ez.onrender.com/removeproduct', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: id }),
+    });
+    await fetchInfo();
+  }
 
   return (
     <div className='list-product'>
@@ -46,17 +44,17 @@ const ListProduct = () => {
       </div>
       <div className="listproduct-allproducts">
         <hr />
-        {allproducts.map((product,index)=>{
+        {allproducts.map((product, index) => {
           return <>
-          <div key={index} className="listproduct-format-main listproduct-format">
-            <img src={product.image} alt="" className="listproduct-product-icon" />
-            <p>{product.name}</p>
-            <p>₹{product.old_price}</p>
-            <p>₹{product.new_price}</p>
-            <p>{product.category}</p>
-            <img onClick={()=>{remove_product(product.id)}} src={cross_icon} alt="" className="listproduct-remove-icon" />
-          </div>
-          <hr />
+            <div key={index} className="listproduct-format-main listproduct-format">
+              <img src={product.image} alt="" className="listproduct-product-icon" />
+              <p>{product.name}</p>
+              <p>₹{product.old_price}</p>
+              <p>₹{product.new_price}</p>
+              <p>{product.category}</p>
+              <img onClick={() => { remove_product(product.id) }} src={cross_icon} alt="" className="listproduct-remove-icon" />
+            </div>
+            <hr />
           </>
         })}
       </div>
