@@ -14,7 +14,10 @@ dotenv.config();
 app.use(express.json());
 
 app.use(cors({
-    origin:  ['http://localhost:3000', 'http://localhost:5173'], // your frontend port
+    origin: [
+          'https://e-commerce-frontend-rigc.onrender.com',
+        'https://e-commerce-website-admin-7lcj.onrender.com'
+], // your frontend port
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
 }));
@@ -52,7 +55,7 @@ app.post("/upload",upload.single('product'),(req,res)=>{
   }
     res.json({
         success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`,
+        image_url:`https://e-commerce-backend-r3ez.onrender.com/images/${req.file.filename}`,
     })
 })
 
